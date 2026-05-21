@@ -25,37 +25,16 @@ Abstraction only becomes truly useful when it stays composable. Lynx UI does not
 
 Take `Popover` as an example. Its behavior is split into explicit structural parts, so teams can keep the interaction model while freely shaping the surface:
 
-```tsx
-import {
-  PopoverRoot,
-  PopoverTrigger,
-  PopoverAnchor,
-  PopoverPositioner,
-  PopoverContent,
-  PopoverArrow,
-} from '@lynx-js/lynx-ui';
-
-export function BrandedPopover() {
-  return (
-    <PopoverRoot>
-      <PopoverTrigger>
-        <view className="trigger">
-          <text className="trigger-label">Open menu</text>
-        </view>
-      </PopoverTrigger>
-
-      <PopoverAnchor>
-        <PopoverPositioner placement="bottom-start" sideOffset={8}>
-          <PopoverContent className="popover-content">
-            <view className="popover-card" />
-            <PopoverArrow className="popover-arrow" />
-          </PopoverContent>
-        </PopoverPositioner>
-      </PopoverAnchor>
-    </PopoverRoot>
-  );
-}
-```
+<Go
+  example="lynx-ui-popover"
+  defaultFile="Basic/index.tsx"
+  img="https://lf-lynx.tiktok-cdns.com/obj/lynx-artifacts-oss-sg/lynx-website/assets/lynx-ui/lynx-ui-cover-popover.webm"
+  entry="Basic"
+  defaultEntryFile="dist/PopoverBasic.lynx.bundle"
+  highlight="{20-38}"
+  schema="{{{url}}}?fullscreen=true&bar_color=0d0d0d&bg_color=0d0d0d"
+  webPreviewMode="auto"
+/>
 
 The important part is not the visual style of this example, but the separation of responsibilities: `PopoverRoot` owns state, `PopoverTrigger` defines intent, `PopoverPositioner` handles placement, and `PopoverContent` stays structurally independent. That is the kind of composition model that makes advanced reuse natural instead of fragile.
 
